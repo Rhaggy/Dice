@@ -34,4 +34,4 @@ pi = input("H eller S").lower
 while pi == "H":
     sum_player2 = sum_player + get_value(cards.pop())
     continue
-print(f"{sum_player2}")
+    print(f"{sum_player2}")
