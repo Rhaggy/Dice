@@ -30,6 +30,8 @@ sum_dealer =  get_value(cards.pop())
 
 print(f"Spelarens summa: {sum_player}")
 print(f"Dealens summa: {sum_dealer}")
-#pi = input("H eller S")
-#while True:
- ### print()
+pi = input("H eller S").lower
+while pi == "H":
+    sum_player2 = sum_player + get_value(cards.pop())
+    continue
+print(f"{sum_player2}")
