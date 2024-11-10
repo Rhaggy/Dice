@@ -19,22 +19,37 @@ def get_color(card):
         return "♦︎" 
     else:
         return "♣︎"
-    
+
+def fun():
+    if deal_2_Player == 22:
+        return 12
+    else:
+        return deal_2_Player
 
 cards = [x for x in range(1,53)]
 
 random.shuffle(cards)
 
-sum_player =  get_value(cards.pop()) + get_value(cards.pop())
-sum_dealer =  get_value(cards.pop())
+deal_1_Player =  get_value(cards.pop()) 
+deal_1_Dealer =  get_value(cards.pop())
 
-print(f"Spelarens summa: {sum_player}")
-print(f"Dealens summa: {sum_dealer}")
+deal_2_Player = deal_1_Player + get_value(cards.pop())
+deal_2_Dealer = deal_1_Dealer + get_value(cards.pop())
 
+if deal_2_Player == 21:
+    print("Blackjack")
+else:
+    print(f"{deal_2_Player} Player's Hand") 
 
+print(f"{deal_1_Dealer} Dealer's Hand")    
 
 while True:
-   print(sum_player)
-   sum_player =+ get_value(cards.pop())
-   break
+    Player_input = input("Stand or hit? (s/h): ") 
+    if Player_input.lower() == "h":
+        deal_3_player = deal_2_Player + get_value(cards.pop())
+        print(deal_3_player)
+    else: 
+        break
 
+print(deal_3_player)
+print(deal_2_Dealer)
