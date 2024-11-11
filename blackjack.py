@@ -49,6 +49,7 @@ while True:
         deal_3_player = deal_2_Player + get_value(cards.pop())
         print(deal_3_player)
     else: 
+        deal_3_player = deal_2_Player
         break
 
 print(deal_3_player)
