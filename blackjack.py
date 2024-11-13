@@ -46,11 +46,10 @@ print(f"{deal_1_Dealer} Dealer's Hand")
 while True:
     Player_input = input("Stand or hit? (s/h): ") 
     if Player_input.lower() == "h":
-        deal_3_player = deal_2_Player + get_value(cards.pop())
-        print(deal_3_player)
+        deal_2_player += deal_2_Player + get_value(cards.pop())
+        print(deal_2_player)
     else: 
-
         break
 
-print(deal_3_player)
+print(deal_2_player)
 print(deal_2_Dealer)
