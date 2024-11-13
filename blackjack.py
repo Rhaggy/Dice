@@ -20,7 +20,7 @@ def get_color(card):
     else:
         return "♣︎"
 
-def Ace_Ace():
+def fun():
     if deal_2_Player == 22:
         return 12
     else:
@@ -41,14 +41,15 @@ if deal_2_Player == 21:
 else:
     print(f"{deal_2_Player} Player's Hand") 
 
-print(f"{deal_1_Dealer} Dealer's Hand")    
+print(f"{deal_1_Dealer} Dealer's Hand")
 
 while True:
     Player_input = input("Stand or hit? (s/h): ") 
     if Player_input.lower() == "h":
         deal_3_player = deal_2_Player + get_value(cards.pop())
         print(deal_3_player)
-    else:
+    else: 
+
         break
 
 print(deal_3_player)
