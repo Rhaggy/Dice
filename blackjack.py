@@ -56,30 +56,38 @@ deal_2_Dealer = deal_1_Dealer + get_value(cards.pop())
 
 
 if deal_2_Dealer == 21:
+    print(deal_2_Dealer)
     print("dealer has blackjack and wins")
+
     Bank = Bank - Bet
+    #end game
 
     
 if deal_2_Player == 21:
-    print("Blackjack")#avsluta splet dubbla bet
+    print("Blackjack")
     Bet = Bet*2
-    Bank = Bank + Bet
+    Bank = Bank + Bet  
+    #avsluta spelet
 else:
     print(f"{deal_2_Player} Player's Hand") 
 
 print(f"{deal_1_Dealer} Dealer's Hand")
 
 while True:
+    if deal_2_Player > 21:
+        break
+
     Player_input = input("Stand or hit? (s/h): ") 
     if Player_input.lower() == "h":
         deal_2_Player =+ deal_2_Player + get_value(cards.pop())
         print(deal_2_Player)
-    elif deal_2_Player > 21:
-        break
-    elif deal_2_Player == 21:
-        break
     else: 
         break
+
+
+
+
+
 
 if deal_2_Player > 21:
     print("Bust")
@@ -88,11 +96,13 @@ elif deal_2_Player == 21:
     print("Blackjack")
     Bet = Bet * 2
     Bank = Bank + Bet
+    print(f"{deal_2_Dealer} dealers hand") 
 else:
-    print(deal_2_Player)
-    print(deal_2_Dealer)
+    print(f"{deal_2_Player} players hand")
+    print(f"{deal_2_Dealer} dealers hand")
 
 while deal_2_Player <= 21:
+   
     if deal_2_Dealer < 17:
         print("Dealer hits")
         deal_2_Dealer =+ deal_2_Dealer + get_value(cards.pop())
@@ -103,7 +113,6 @@ while deal_2_Player <= 21:
     elif deal_2_Dealer > 21:
         print("Dealer is bust")
         break
-
 
 
 if 21 >= deal_2_Player > deal_2_Dealer:
@@ -125,6 +134,4 @@ elif deal_2_Dealer == deal_2_Player:
     Bank = Bank + Bet
 
 
-
-
-print("done")
+print(f"{Bank} dollars in your bank")
