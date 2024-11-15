@@ -32,6 +32,11 @@ def DD_Ace_Ace():
     else:
         return deal_2_Dealer 
 
+Bank = 1000 #kr       
+print(f"Player has {Bank} dollers in his bank")       
+Bet = 50 #int(input("How much do you want to bet"))
+
+
 
 cards = [x for x in range(1,53)]
 
@@ -43,7 +48,7 @@ deal_1_Dealer =  get_value(cards.pop())
 if deal_1_Dealer == 11 or 10:
     print("Dealer can have Blackjack")
 else:
-    print("")
+    print("m")
 
 deal_2_Player = deal_1_Player + get_value(cards.pop())
 deal_2_Dealer = deal_1_Dealer + get_value(cards.pop())
@@ -55,6 +60,8 @@ deal_2_Dealer = deal_1_Dealer + get_value(cards.pop())
 
 if deal_2_Player == 21:
     print("Blackjack")#avsluta splet dubbla bet
+    Bet = Bet*2
+    Bank = Bank + Bet
 else:
     print(f"{deal_2_Player} Player's Hand") 
 
@@ -74,8 +81,11 @@ while True:
 
 if deal_2_Player > 21:
     print("Bust")
+    Bank = Bank - Bet
 elif deal_2_Player == 21:
     print("Blackjack")
+    Bet = Bet * 2
+    Bank = Bank + Bet
 else:
     print(deal_2_Player)
     print(deal_2_Dealer)
@@ -98,14 +108,25 @@ while True:
 
 #skapa en granskning om betet 
 if 21 >= deal_2_Player > deal_2_Dealer:
-    print("Player win")#dubbla bet
+    print("Player win")
+    Bet = Bet * 2
+    Bank = Bank + Bet   
 elif deal_2_Dealer > 21 and deal_2_Player <= 21:
-    print("Player win")#dubbla bet
+    print("Player win")
+    Bet = Bet * 2
+    Bank = Bank + Bet
 elif 21 >= deal_2_Dealer > deal_2_Player:
-    print("DEALER WIN")#förlora bet
+    print("DEALER WIN")
+    Bank = Bank - Bet
 elif deal_2_Player > 21 and deal_2_Dealer <= 21:
-    print("DEALER WIN")   #förlora bet
+    print("DEALER WIN")
+    Bank = Bank - Bet
 elif deal_2_Dealer == deal_2_Player:
-    print("player is pushed") #få tillbaka bet
+    print("player is pushed") 
+    Bank = Bank + Bet
 else:
     print("how") #how
+
+
+
+print(Bank)
