@@ -32,9 +32,9 @@ def DD_Ace_Ace():
     else:
         return deal_2_Dealer 
 
-Bank = 1000 #kr       
+Bank = 0 #kr       
 print(f"Player has {Bank} dollers in his bank")       
-Bet = 50 #int(input("How much do you want to bet"))
+Bet = 50 #int(input("How much do you want to bet: "))
 
 
 
@@ -45,19 +45,21 @@ random.shuffle(cards)
 deal_1_Player =  get_value(cards.pop()) 
 deal_1_Dealer =  get_value(cards.pop())
 
-if deal_1_Dealer == 11 or 10:
+if deal_1_Dealer == 10 :
     print("Dealer can have Blackjack")
-else:
-    print("m")
+
+if deal_1_Dealer == 11:
+    print("Dealer can have Blackjack")
 
 deal_2_Player = deal_1_Player + get_value(cards.pop())
 deal_2_Dealer = deal_1_Dealer + get_value(cards.pop())
 
 
-#if deal_2_Dealer == 21:
-#avsluta splet och dealer vann 
+if deal_2_Dealer == 21:
+    print("dealer has blackjack and wins")
+    Bank = Bank - Bet
 
-
+    
 if deal_2_Player == 21:
     print("Blackjack")#avsluta splet dubbla bet
     Bet = Bet*2
@@ -68,14 +70,14 @@ else:
 print(f"{deal_1_Dealer} Dealer's Hand")
 
 while True:
-    if deal_2_Player > 21:
-        break
-    if deal_2_Player == 21:
-        break
     Player_input = input("Stand or hit? (s/h): ") 
     if Player_input.lower() == "h":
         deal_2_Player =+ deal_2_Player + get_value(cards.pop())
         print(deal_2_Player)
+    elif deal_2_Player > 21:
+        break
+    elif deal_2_Player == 21:
+        break
     else: 
         break
 
@@ -90,8 +92,7 @@ else:
     print(deal_2_Player)
     print(deal_2_Dealer)
 
-while True:
-
+while deal_2_Player <= 21:
     if deal_2_Dealer < 17:
         print("Dealer hits")
         deal_2_Dealer =+ deal_2_Dealer + get_value(cards.pop())
@@ -102,11 +103,9 @@ while True:
     elif deal_2_Dealer > 21:
         print("Dealer is bust")
         break
-    else:
-        break
 
 
-#skapa en granskning om betet 
+
 if 21 >= deal_2_Player > deal_2_Dealer:
     print("Player win")
     Bet = Bet * 2
@@ -124,9 +123,8 @@ elif deal_2_Player > 21 and deal_2_Dealer <= 21:
 elif deal_2_Dealer == deal_2_Player:
     print("player is pushed") 
     Bank = Bank + Bet
-else:
-    print("how") #how
 
 
 
-print(Bank)
+
+print("done")
