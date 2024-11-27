@@ -106,7 +106,7 @@ while deal_2_Player <= 21:
     if deal_2_Dealer < 17:
         print("Dealer hits")
         deal_2_Dealer =+ deal_2_Dealer + get_value(cards.pop())
-        print(deal_2_Dealer)
+        print(deal_2_Dealer)     
     elif 21 == deal_2_Dealer >= 17: 
         print("Dealer stands")
         break
